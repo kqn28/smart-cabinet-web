@@ -1,1 +1,1 @@
-web: yarn express:run
+web: yarn dev
