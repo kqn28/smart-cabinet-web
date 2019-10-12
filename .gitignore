@@ -23,4 +23,4 @@ yarn-error.log*
 *.sw?
 
 # Server js files
-/server/**/*.js
+/server/**/*.ts
