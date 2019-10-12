@@ -8,6 +8,5 @@
   },
   "formation": {
   },
-  "name": "smart-cabinet-web",
-  "stack": "ubuntu-16"
+  "name": "smart-cabinet-web"
 }
