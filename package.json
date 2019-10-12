@@ -6,8 +6,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve --open",
-    "express": "tsc ./server/index.ts && vue-cli-service express:watch",
-    "express:run": "tsc ./server/index.ts && vue-cli-service express:run",
+    "express": "vue-cli-service express:watch",
+    "express:run": "vue-cli-service express:run",
     "heroku-postinstall": "yarn install && yarn build",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
