@@ -7,7 +7,7 @@ var PgSql = /** @class */ (function () {
     }
     PgSql.getClient = function () {
         return new pg.Client({
-            connectionString: environment_1.Environment.getEnvironmentVars().databaseUri,
+            connectionString: environment_1.Environment.getEnvironmentVars().databaseUrl,
             ssl: true
         });
     };

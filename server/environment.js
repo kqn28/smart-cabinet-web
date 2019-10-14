@@ -10,8 +10,8 @@ var Environment = /** @class */ (function () {
         }
         return this._vars;
     };
-    Environment.setEnvironmentVarsFromArguments = function (smartCabinetEnv, databaseUri) {
-        this._vars = environment_vars_1.EnvironmentVars.fromArguments(smartCabinetEnv, databaseUri);
+    Environment.setEnvironmentVarsFromArguments = function (smartCabinetEnv, databaseUrl) {
+        this._vars = environment_vars_1.EnvironmentVars.fromArguments(smartCabinetEnv, databaseUrl);
     };
     Environment.resetEnvironmentVars = function () {
         this._vars = null;
