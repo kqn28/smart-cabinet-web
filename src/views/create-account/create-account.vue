@@ -1,7 +1,10 @@
 <template>
   <div class="flex-container flex-item-variable center-align">
     <img alt="Smart Cabinet logo" src="../../assets/smart-cabinet-logo.png">
-    <v-form class="create-account-form">
+    <v-alert type="error" v-if="showError">
+      This username/email is already registered
+    </v-alert>
+    <v-form class="create-account-form" ref="createAccountForm" v-model="isFormValid">
       <v-text-field
         label="First Name"
         name="firstName"
@@ -19,19 +22,24 @@
         required
       ></v-text-field>
       <v-text-field
-        label="Username"
-        name="userame"
-        type="text"
-        v-model="username"
-        :rules="[() => !!username || 'This field is required']"
-        required
-      ></v-text-field>
-      <v-text-field
         label="Email"
         name="email"
         type="text"
         v-model="email"
-        :rules="[() => !!email || 'This field is required']"
+        @focus="onTextFieldFocus()"
+        :rules="[
+          () => !!email || 'This field is required',
+          () => !!email.match(emailRegex) || 'Email is invalid'
+        ]"
+        required
+      ></v-text-field>
+       <v-text-field
+        label="Username"
+        name="userame"
+        type="text"
+        v-model="username"
+        @focus="onTextFieldFocus()"
+        :rules="[() => !!username || 'This field is required']"
         required
       ></v-text-field>
       <v-text-field
@@ -55,7 +63,7 @@
       ></v-text-field>
       <div class="flex-container-row create-account-button-bar">
         <v-btn color="primary" @click="onBackToLoginButtonClick()">Back to login</v-btn>
-        <v-btn color="primary">Create</v-btn>
+        <v-btn color="primary" @click="onCreateButtonClick()">Create</v-btn>
       </div>
     </v-form>
   </div>
