@@ -3,21 +3,21 @@ exports.__esModule = true;
 var dotenv = require("dotenv");
 var smart_cabinet_env_1 = require("../core/server/smart-cabinet-env");
 var EnvironmentVars = /** @class */ (function () {
-    function EnvironmentVars(smartCabinetEnv, databaseUri) {
+    function EnvironmentVars(smartCabinetEnv, databaseUrl) {
         this.smartCabinetEnv = smartCabinetEnv;
-        this.databaseUri = databaseUri;
+        this.databaseUrl = databaseUrl;
     }
     EnvironmentVars.fromProcessEnv = function () {
         dotenv.config();
         var smartCabinetEnv = smart_cabinet_env_1.parseSmartCabinetEnv(process.env.SMART_CABINET_ENV);
-        var databaseUri = process.env.DATABASE_URI;
-        if (!databaseUri) {
-            throw new Error('DATABASE_URI is not provided');
+        var databaseUrl = process.env.DATABASE_URL;
+        if (!databaseUrl) {
+            throw new Error('DATABASE_URL is not provided');
         }
-        return new EnvironmentVars(smartCabinetEnv, databaseUri);
+        return new EnvironmentVars(smartCabinetEnv, databaseUrl);
     };
-    EnvironmentVars.fromArguments = function (smartCabinetEnv, databaseUri) {
-        return new EnvironmentVars(smartCabinetEnv, databaseUri);
+    EnvironmentVars.fromArguments = function (smartCabinetEnv, databaseUrl) {
+        return new EnvironmentVars(smartCabinetEnv, databaseUrl);
     };
     return EnvironmentVars;
 }());
