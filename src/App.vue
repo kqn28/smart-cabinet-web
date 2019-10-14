@@ -6,20 +6,7 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
-export default Vue.extend({
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
-});
-</script>
+<script lang="ts" src="./App.vue.ts"></script>
 <style lang="scss">
   .flex-container {
     display: flex;

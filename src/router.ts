@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import CreateAccount from './views/create-account/create-account.vue';
 import Login from './views/login/login.vue';
 import About from './views/About.vue';
-import CreateAccount from './views/create-account/create-account.vue';
 
 Vue.use(Router);
 

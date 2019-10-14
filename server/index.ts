@@ -1,12 +1,8 @@
 import * as express from 'express';
 // import socketIO from "socket.io";
+import { api } from './server';
 
 export default (app, http) => {
   app.use(express.json());
-  app.get('/foo', (req, res) => {
-    res.json({msg: 'foo'});
-  });
-  app.post('/bar', (req, res) => {
-    res.json(req.body);
-  });
+  app.use('/api', api);
 };

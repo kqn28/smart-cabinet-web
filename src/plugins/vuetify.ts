@@ -1,9 +1,9 @@
-import Vue from 'vue';
-// @ts-ignore
-import Vuetify from 'vuetify/lib';
-import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import Vue from 'vue';
+import 'vuetify/dist/vuetify.min.css';
+// @ts-ignore
+import Vuetify from 'vuetify/lib';
 
 Vue.use(Vuetify);
 
