@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 import * as Express from 'express';
 import { PgSql } from '../pg-sql';
 
@@ -38,8 +39,12 @@ usersApi.post('/CreateUser', (req: Express.Request, res: Express.Response) => {
       if (!firstName || !lastName || !email || !username || !password) {
         throw new Error('Missing input(s)');
       }
-      client.query('SELECT sm.users__create_user($1, $2, $3, $4, $5)', [firstName, lastName, email, username, password])
-        .then((result: any) => {
+      // Encrypt password
+      const hashedPassword = crypto.createHash('sha256').update(password).digest('base64');
+      client.query(
+        'SELECT sm.users__create_user($1, $2, $3, $4, $5)',
+        [firstName, lastName, email, username, hashedPassword],
+      ).then((result: any) => {
           res.sendStatus(200);
         });
     });

@@ -13,6 +13,9 @@
     },
     "PORT": {
       "required": true
+    },
+    "ENCRYPTION_KEY": {
+      "required": true
     }
   },
   "formation": {

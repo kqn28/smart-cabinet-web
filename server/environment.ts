@@ -10,8 +10,12 @@ export class Environment {
     }
     return this._vars;
   }
-  public static setEnvironmentVarsFromArguments(smartCabinetEnv: SmartCabinetEnv, databaseUrl: string) {
-    this._vars = EnvironmentVars.fromArguments(smartCabinetEnv, databaseUrl);
+  public static setEnvironmentVarsFromArguments(
+    smartCabinetEnv: SmartCabinetEnv,
+    databaseUrl: string,
+    encryptionKey: string,
+  ) {
+    this._vars = EnvironmentVars.fromArguments(smartCabinetEnv, databaseUrl, encryptionKey);
   }
   public static resetEnvironmentVars() {
     this._vars = null;
