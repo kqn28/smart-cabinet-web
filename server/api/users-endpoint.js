@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var crypto = require("crypto");
 var Express = require("express");
+var environment_1 = require("../environment");
 var pg_sql_1 = require("../pg-sql");
 var usersApi = Express.Router();
 exports.usersApi = usersApi;
@@ -41,7 +42,9 @@ usersApi.post('/CreateUser', function (req, res) {
                 throw new Error('Missing input(s)');
             }
             // Encrypt password
-            var hashedPassword = crypto.createHash('sha256').update(password).digest('base64');
+            var hashedPassword = crypto.createHmac('sha256', environment_1.Environment.getEnvironmentVars().encryptionKey)
+                .update(password)
+                .digest('base64');
             client_2.query('SELECT sm.users__create_user($1, $2, $3, $4, $5)', [firstName, lastName, email, username, hashedPassword]).then(function (result) {
                 res.sendStatus(200);
             });

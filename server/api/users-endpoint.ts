@@ -1,5 +1,6 @@
 import * as crypto from 'crypto';
 import * as Express from 'express';
+import { Environment } from '../environment';
 import { PgSql } from '../pg-sql';
 
 const usersApi = Express.Router();
@@ -40,7 +41,9 @@ usersApi.post('/CreateUser', (req: Express.Request, res: Express.Response) => {
         throw new Error('Missing input(s)');
       }
       // Encrypt password
-      const hashedPassword = crypto.createHash('sha256').update(password).digest('base64');
+      const hashedPassword = crypto.createHmac('sha256', Environment.getEnvironmentVars().encryptionKey)
+        .update(password)
+        .digest('base64');
       client.query(
         'SELECT sm.users__create_user($1, $2, $3, $4, $5)',
         [firstName, lastName, email, username, hashedPassword],
