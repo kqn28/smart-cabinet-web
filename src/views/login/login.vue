@@ -1,12 +1,16 @@
 <template>
   <div class="flex-container flex-item-variable center-align">
     <img alt="Smart Cabinet logo" src="../../assets/smart-cabinet-logo.png">
+    <v-alert type="error" v-if="errorMessage !== null">
+      {{ errorMessage }}
+    </v-alert>
     <v-form class="login-form">
       <v-text-field
         label="Username"
         name="username"
         prepend-icon="person"
         type="text"
+        @focus="onTextFieldFocus()"
         v-model="username"
         :rules="[() => !!username || 'This field is required']"
       ></v-text-field>
@@ -16,12 +20,13 @@
         name="password"
         prepend-icon="lock"
         type="password"
+        @focus="onTextFieldFocus()"
         v-model="password"
         :rules="[() => !!password || 'This field is required']"
       ></v-text-field>
       <div class="flex-container-row login-button-bar">
         <v-btn color="primary" @click="onCreateAccountButtonClick()">Create Account</v-btn>
-        <v-btn color="primary">Login</v-btn>
+        <v-btn color="primary" @click="onLoginButtonClick()">Login</v-btn>
       </div>
     </v-form>
   </div>
