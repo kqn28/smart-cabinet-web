@@ -10,7 +10,8 @@ export const rootStateActions: ActionTree<RootState, RootState> = {
     return await UsersService.checkUserExist(userInfo);
   },
   async createUser({commit}: ActionContext<RootState, RootState>, userInfo: CreateUserInfo) {
-    await UsersService.createUser(userInfo);
+    const user = await UsersService.createUser(userInfo);
+    commit('userUpdate', user);
   },
   async getUser({commit}: ActionContext<RootState, RootState>, userInfo: UserLoginInfo) {
     const user = await UsersService.getUser(userInfo);

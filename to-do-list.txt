@@ -1,0 +1,4 @@
+1. Add remember me option (optional for now)
+2. Add main page
+3. Add environment to root state in App.vue.ts
+4. Research to transpile javascript server code to full typescript

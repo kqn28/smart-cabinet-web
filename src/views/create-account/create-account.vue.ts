@@ -1,7 +1,8 @@
 import { Component, Vue } from 'vue-property-decorator';
-import { Action } from 'vuex-class';
+import { Action, Getter } from 'vuex-class';
 import { CheckUserExistInfo } from '../../../core/check-user-exist-info';
 import { CreateUserInfo } from '../../../core/create-user-info';
+import { SmartCabinetUser } from '../../../core/smart-cabinet-user';
 
 @Component
 export default class CreateAccount extends Vue {
@@ -20,6 +21,8 @@ export default class CreateAccount extends Vue {
   private _checkUserExist!: (checkUserExistInfo: CheckUserExistInfo) => Promise<boolean>;
   @Action('createUser')
   private _createUser!: (createUserInfo: CreateUserInfo) => Promise<void>;
+  @Getter('getCurrentUser')
+  private _currentUser!: SmartCabinetUser;
 
   public onTextFieldFocus() {
     this.showError = false;
@@ -41,7 +44,7 @@ export default class CreateAccount extends Vue {
     }
     const createUserInfo = new CreateUserInfo(this.firstName, this.lastName, this.email, this.username, this.password);
     await this._createUser(createUserInfo);
-    this.onBackToLoginButtonClick();
+    this.$router.push(`/${this._currentUser.username}`);
   }
 }
 

@@ -47,7 +47,11 @@ usersApi.post('/CreateUser', function (req, res) {
                 .update(password)
                 .digest('base64');
             client_2.query('SELECT * from sm.users__create_user($1, $2, $3, $4, $5)', [firstName, lastName, email, username, hashedPassword]).then(function (result) {
-                res.sendStatus(200);
+                if (result.rows.length > 1) {
+                    throw Error('There are more than one rows returned');
+                }
+                var user = new smart_cabinet_user_1.SmartCabinetUser(result.rows[0].first_name, result.rows[0].last_name, result.rows[0].username, result.rows[0].email);
+                res.send({ user: user });
             });
         });
     }
@@ -70,7 +74,6 @@ usersApi.post('/GetUser', function (req, res) {
                 .update(password)
                 .digest('base64');
             client_3.query('SELECT * from sm.users__get_user($1, $2)', [username, null]).then(function (result) {
-                console.error(result);
                 if (result.rows.length > 1) {
                     throw Error('There are more than one rows returned');
                 }
