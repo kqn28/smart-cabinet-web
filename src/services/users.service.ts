@@ -10,7 +10,8 @@ export class UsersService {
     return response.data.userExist;
   }
   public static async createUser(userInfo: CreateUserInfo) {
-    await axios.post('api/Users/CreateUser', userInfo);
+    const response = await axios.post('api/Users/CreateUser', userInfo);
+    return SmartCabinetUser.fromApi(response.data.user);
   }
   public static async getUser(userInfo: UserLoginInfo) {
     const response = await axios.post('api/Users/GetUser', userInfo);
