@@ -53,6 +53,7 @@ usersApi.post('/CreateUser', (req: Express.Request, res: Express.Response) => {
           throw Error('There are more than one rows returned');
         }
         const user = new SmartCabinetUser(
+          result.rows[0].id,
           result.rows[0].first_name,
           result.rows[0].last_name,
           result.rows[0].username,
