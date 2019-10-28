@@ -89,6 +89,7 @@ usersApi.post('/GetUser', (req: Express.Request, res: Express.Response) => {
           res.send({invalidPassword: false, noUserExist: true, user: []});
         }
         const user = new SmartCabinetUser(
+          result.rows[0].id,
           result.rows[0].first_name,
           result.rows[0].last_name,
           result.rows[0].username,
