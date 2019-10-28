@@ -8,4 +8,24 @@ export default class MainPage extends Vue {
   @Getter('getCurrentUser')
   public currentUser!: SmartCabinetUser;
 
+  public headers = [
+    {
+      text: 'Item Name',
+      value: 'name',
+    },
+    {
+      text: 'Quantity',
+      value: 'quantity',
+    },
+    {
+      text: 'Unit',
+      value: 'unit',
+    },
+  ];
+
+  public mounted() {
+    if (this.currentUser === null) {
+      this.$router.push('/login');
+    }
+  }
 }

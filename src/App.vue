@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="flex-container">
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -8,6 +8,9 @@
 
 <script lang="ts" src="./App.vue.ts"></script>
 <style lang="scss">
+  html {
+    overflow-y: hidden;
+  }
   .flex-container {
     display: flex;
     flex-direction: column;
