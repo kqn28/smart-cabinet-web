@@ -1,8 +1,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
-import { CheckUserExistInfo } from '../../../core/check-user-exist-info';
-import { CreateUserInfo } from '../../../core/create-user-info';
-import { SmartCabinetUser } from '../../../core/smart-cabinet-user';
+import { CheckUserExistInfo } from '../../../core/user/check-user-exist-info';
+import { CreateUserInfo } from '../../../core/user/create-user-info';
+import { SmartCabinetUser } from '../../../core/user/smart-cabinet-user';
 
 @Component
 export default class CreateAccount extends Vue {

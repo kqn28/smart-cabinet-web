@@ -1,4 +1,8 @@
 1. Add remember me option (optional for now)
-2. Add main page
-3. Add environment to root state in App.vue.ts
-4. Research to transpile javascript server code to full typescript
+2. Add getItems endpoint
+3. Add order number in the table
+4. Add edit for each row
+5. Refactor the style to be more uniform
+6. Decide if there should be only one connection at a time or disconnect every request to the database
+7. Move Name and menu icon to the right
+8. Move search and add icon to the table after adding table's title

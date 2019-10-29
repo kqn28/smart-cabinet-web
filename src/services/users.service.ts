@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { CheckUserExistInfo } from 'core/check-user-exist-info';
-import { CreateUserInfo } from '../../core/create-user-info';
-import { SmartCabinetUser } from '../../core/smart-cabinet-user';
-import { UserLoginInfo } from '../../core/user-login-info';
+import { CheckUserExistInfo } from 'core/user/check-user-exist-info';
+import { CreateUserInfo } from '../../core/user/create-user-info';
+import { SmartCabinetUser } from '../../core/user/smart-cabinet-user';
+import { UserLoginInfo } from '../../core/user/user-login-info';
 
 export class UsersService {
   public static async checkUserExist(userInfo: CheckUserExistInfo): Promise<boolean> {
