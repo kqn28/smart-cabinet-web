@@ -1,6 +1,6 @@
 import * as crypto from 'crypto';
 import * as Express from 'express';
-import { SmartCabinetUser } from '../../core/smart-cabinet-user';
+import { SmartCabinetUser } from '../../core/user/smart-cabinet-user';
 import { Environment } from '../environment';
 import { PgSql } from '../pg-sql';
 

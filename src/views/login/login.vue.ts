@@ -1,7 +1,7 @@
-import { SmartCabinetUser } from 'core/smart-cabinet-user';
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
-import { UserLoginInfo } from '../../../core/user-login-info';
+import { SmartCabinetUser } from '../../../core/user/smart-cabinet-user';
+import { UserLoginInfo } from '../../../core/user/user-login-info';
 
 @Component
 export default class Login extends Vue {
