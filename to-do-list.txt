@@ -3,6 +3,8 @@
 3. Add order number in the table
 4. Add edit for each row
 5. Refactor the style to be more uniform
-6. Decide if there should be only one connection at a time or disconnect every request to the database
-7. Move Name and menu icon to the right
-8. Move search and add icon to the table after adding table's title
+6. Refactor database to make user have control over one table at a time which allows user to save workspace
+7. Decide if there should be only one connection at a time or disconnect every request to the database
+8. Move Name and menu icon to the right
+9. Move search and add icon to the table after adding table's title
+10. Add sign out

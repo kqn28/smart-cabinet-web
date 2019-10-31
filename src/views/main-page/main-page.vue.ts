@@ -33,9 +33,15 @@ export default class MainPage extends Vue {
   public cabinetItems: CabinetItem[] = [];
   public errorMessage: string | null = null;
 
-  public created() {
+  public async created() {
     if (this.currentUser === null) {
       this.$router.push('/login');
+    }
+    try {
+      const items = await CabinetItemsService.getItems(this.currentUser.id);
+      this.cabinetItems = items;
+    } catch (error) {
+      this.errorMessage = error.message;
     }
   }
 
