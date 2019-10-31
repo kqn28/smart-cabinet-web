@@ -6,4 +6,8 @@ export class CabinetItemsService {
     const response = await axios.post('api/CabinetItems/AddItem', { userId, item });
     return CabinetItem.arrayFromApi(response.data.items);
   }
+  public static async getItems(userId: string) {
+    const response = await axios.get('api/CabinetItems/GetItems', {params: {userId}});
+    return CabinetItem.arrayFromApi(response.data.items);
+  }
 }

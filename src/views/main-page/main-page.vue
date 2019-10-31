@@ -11,6 +11,9 @@
         <v-icon>mdi-plus-thick</v-icon>
       </v-btn>
     </v-app-bar>
+    <v-alert type="error" v-if="errorMessage !== null">
+      {{ errorMessage }}
+    </v-alert>
     <v-data-table
       :headers="headers"
       :items="cabinetItems"
