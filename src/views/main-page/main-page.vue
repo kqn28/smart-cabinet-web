@@ -19,7 +19,13 @@
       :items="cabinetItems"
       :fixed-header="true"
       class="elevation-1 flex-item-variable"
-    ></v-data-table>
+    >
+      <template v-slot:item.buttons="{ item }">
+        <v-btn icon @click="onDeleteButtonClick(item.id)">
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+      </template>
+    </v-data-table>
     <add-item-dialog 
       :dialog-open="addItemDialogOpen"
       :error-message.sync="errorMessage"

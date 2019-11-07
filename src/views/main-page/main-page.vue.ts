@@ -29,6 +29,10 @@ export default class MainPage extends Vue {
       text: 'Unit',
       value: 'unit',
     },
+    {
+      text: '',
+      value: 'buttons',
+    },
   ];
   public cabinetItems: CabinetItem[] = [];
   public errorMessage: string | null = null;
@@ -50,6 +54,14 @@ export default class MainPage extends Vue {
   }
   public onAddItemDialogClose() {
     this.addItemDialogOpen = false;
+  }
+  public async onDeleteButtonClick(itemId: string) {
+    try {
+      const items = await CabinetItemsService.deleteItem(this.currentUser.id, itemId);
+      this.cabinetItems = items;
+    } catch (error) {
+      this.errorMessage = error.message;
+    }
   }
   public async onAddItemDialogSave(newItem: CabinetItem) {
     try {

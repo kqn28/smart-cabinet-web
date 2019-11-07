@@ -29,7 +29,7 @@ export default class AddItemDialog extends Vue {
     if (!this.isFormValid) {
       return;
     }
-    this.$emit('save', new CabinetItem(this.itemName, this.quantity, this.unit));
+    this.$emit('save', new CabinetItem(null, this.itemName, this.quantity, this.unit));
     form.reset();
   }
 }
