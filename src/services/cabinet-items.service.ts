@@ -10,4 +10,8 @@ export class CabinetItemsService {
     const response = await axios.get('api/CabinetItems/GetItems', {params: {userId}});
     return CabinetItem.arrayFromApi(response.data.items);
   }
+  public static async deleteItem(userId: string, itemId: string) {
+    const response = await axios.get('api/CabinetItems/DeleteItem', {params: {userId, itemId}});
+    return CabinetItem.arrayFromApi(response.data.items);
+  }
 }
